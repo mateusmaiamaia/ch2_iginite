@@ -43,7 +43,7 @@ const Pet = sequelize.define('Pet', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'ORGs', // Nome da tabela de ONGs (será pluralizado pelo Sequelize)
+      model: 'orgs', // Nome da tabela de ONGs (será pluralizado pelo Sequelize)
       key: 'id',
     },
     onUpdate: 'CASCADE',

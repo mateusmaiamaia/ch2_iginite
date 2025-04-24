@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mateusmaiamaia/ch2_iginite#readme",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "pg": "^8.15.5",
     "pg-hstore": "^2.3.4",
