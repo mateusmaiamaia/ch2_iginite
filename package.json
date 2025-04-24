@@ -1,0 +1,26 @@
+{
+  "name": "ch2_iginite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateusmaiamaia/ch2_iginite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateusmaiamaia/ch2_iginite/issues"
+  },
+  "homepage": "https://github.com/mateusmaiamaia/ch2_iginite#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.15.5",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
+  }
+}

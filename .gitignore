@@ -1,0 +1,113 @@
+# Logs
+*.log
+*.stackdump
+
+# Diretórios de dependências
+node_modules/
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Arquivos de configuração de ambiente
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# Arquivos de build e distribuição
+build/
+dist/
+out/
+.next/
+.nuxt/
+generated/
+storybook-static/
+
+# Sistemas de arquivos específicos de IDEs e editores
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+*.vsproj
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.DS_Store
+Thumbs.db
+
+# Outros arquivos e diretórios específicos do sistema operacional
+tmp/
+temp/
+__pycache__/
+*.py[cod]
+*$py.class
+.Rhistory
+.RData
+.rstudio-desktop
+.sass-cache/
+YiiAssets/
+assets/
+
+# Arquivos de teste e cobertura
+coverage/
+test-results/
+
+# Arquivos de módulos do Python (se aplicável)
+Lib/
+Include/
+Scripts/
+site-packages/
+*.egg-info/
+
+# Arquivos do Docker
+docker-compose*.yaml
+.dockerenv
+
+# Arquivos do Gatsby
+.cache/
+public/
+
+# Arquivos do Expo
+.expo/
+.eas-build-cache/
+
+# Arquivos do Electron
+electron-builder/
+
+# Arquivos do Flutter
+android/build/
+ios/Pods/
+ios/build/
+linux/build/
+macos/build/
+windows/build/
+web/build/
+
+# Arquivos do JetBrains
+.gradle
+gradle/
+*.iml
+
+# Arquivos do Parcel
+.parcel-cache/
+
+# Arquivos do Ruby
+.bundle/
+vendor/bundle
+
+# Arquivos do TypeScript
+*.tsbuildinfo
+
+# Arquivos do Vue
+node_modules
+dist
+.cache
+.nuxt
