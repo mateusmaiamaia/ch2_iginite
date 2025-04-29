@@ -1,14 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const PetController = require('../controllers/petController');
-const petController = new PetController(); // Crie uma instância do controller
+const petController = new PetController(); // Cria uma INSTÂNCIA do controller
 
-router.post('/', petController.cadastrarPet);
-
-router.get('/', petController.listarPetsPorCidade);
-
-router.get('/filter', petController.filtrarPets);
-
-router.get('/:id', petController.detalharPet);
+router.post('/', (req, res) => petController.createPet(req, res));
+router.get('/', (req, res) => petController.listPets(req, res));
+router.get('/:id', (req, res) => petController.getPetById(req, res));
 
 module.exports = router;
