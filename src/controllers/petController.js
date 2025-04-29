@@ -1,4 +1,4 @@
-const PetService = require('../services/PetService');
+const PetService = require('../services/petService');
 
 class PetController {
   async create(req, res) {
@@ -37,6 +37,23 @@ class PetController {
       return res.status(500).json({ error: 'Erro ao buscar detalhes do pet.' });
     }
   }
+
+  cadastrarPet(req, res) { // Adicione este método que chama o 'create'
+    return this.create(req, res);
+  }
+
+  listarPetsPorCidade(req, res) { // Adicione este método que chama o 'listAvailable'
+    return this.listAvailable(req, res);
+  }
+
+  filtrarPets(req, res) { // Adicione este método que chama o 'listAvailable' (com filtros)
+    return this.listAvailable(req, res);
+  }
+
+  detalharPet(req, res) { // Adicione este método que chama o 'show'
+    return this.show(req, res);
+  }
 }
 
-module.exports = new PetController();
+console.log('PetController class:', PetController);
+module.exports = PetController; // Exporte a classe, não a instância

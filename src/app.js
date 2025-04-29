@@ -7,10 +7,8 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// Usando as rotas de pets no caminho /api/pets
 app.use('/api/pets', petRoutes);
 
-// Usando as rotas de ONGs no caminho /api/orgs
 app.use('/api/orgs', orgRoutes);
 
 app.get('/', (req, res) => {

@@ -1,4 +1,4 @@
-const { Pet } = require('../models');
+const { Pet, ORG } = require('../models'); // Importe ORG aqui também
 const { Op } = require('sequelize');
 
 class PetService {
@@ -23,7 +23,7 @@ class PetService {
       const pets = await Pet.findAll({
         where: whereClause,
         include: [{
-          model: require('../models/ORG'), // Importa o modelo ORG aqui para evitar dependência circular imediata
+          model: ORG, // Use a importação no topo
           as: 'organizacao',
           attributes: ['id', 'nome_responsavel', 'whatsapp', 'cidade', 'estado'], // Seleciona atributos da ORG
         }],
@@ -39,7 +39,7 @@ class PetService {
     try {
       const pet = await Pet.findByPk(petId, {
         include: [{
-          model: require('../models/ORG'),
+          model: ORG, // Use a importação no topo
           as: 'organizacao',
           attributes: ['id', 'nome_responsavel', 'email', 'cep', 'endereco', 'cidade', 'estado', 'whatsapp'],
         }],
