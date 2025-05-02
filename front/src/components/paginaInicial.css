@@ -1,0 +1,249 @@
+.pagina-inicial-container {
+  background-color: #FDEFF2;
+  min-height: 100vh;
+  display: flex;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #E5444E;
+  width: 320px;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-container {
+  margin-bottom: 3rem;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.filter-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filter-button {
+  background-color: transparent;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.filter-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.filter-icon {
+  font-size: 0.75rem;
+}
+
+.search-button {
+  background-color: #F4D85E;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.search-button:hover {
+  background-color: #f0c84e;
+}
+
+.search-icon {
+  color: #0B2F56;
+  font-size: 1rem;
+}
+
+.filters-section {
+  background-color: #E95B63;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-grow: 1;
+}
+
+.filters-title {
+  color: white;
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.filter-label {
+  color: white;
+  font-size: 0.75rem;
+  font-weight: normal;
+}
+
+.filter-dropdown {
+  background-color: #F56B70;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  color: white;
+  font-weight: bold;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown-icon {
+  font-size: 0.75rem;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.search-results {
+  color: #0B2F56;
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+
+.results-count {
+  font-weight: bold;
+}
+
+.animal-type-button {
+  background-color: #FDE9EC;
+  color: #0B2F56;
+  font-size: 0.875rem;
+  font-weight: normal;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.animal-type-button:hover {
+  background-color: #FAD9E0;
+}
+
+.pet-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .pet-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .pet-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pet-card {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.white-card {
+  background-color: white;
+}
+
+.pet-image-container {
+  position: relative;
+}
+
+.pet-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.pet-icon-background {
+  position: absolute;
+  bottom: -1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dog-bg {
+  background-color: #F56B70;
+}
+
+.cat-bg {
+  background-color: #F4D85E;
+}
+
+.pet-icon {
+  color: white;
+  font-size: 1rem;
+}
+
+.pet-info {
+  background-color: #0B2F56;
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
+.white-card .pet-info {
+  background-color: white;
+}
+
+.pet-name {
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.white-card .pet-name {
+  color: #0B2F56;
+}

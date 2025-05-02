@@ -1,0 +1,158 @@
+.login-container {
+    display: flex;
+    flex-direction: column; /* Layout em coluna em telas menores */
+    max-width: 960px; /* Largura máxima do container */
+    width: 100%;
+    margin: 0 auto; /* Centralizar o container */
+    padding: 1rem;
+    min-height: 100vh; /* Garante que a tela de login ocupe toda a altura da tela */
+    justify-content: center; /* Centraliza verticalmente o conteúdo */
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+  }
+  
+  @media (min-width: 768px) { /* Em telas médias e maiores */
+    .login-container {
+      flex-direction: row; /* Layout em linha (duas colunas) */
+      gap: 20px; /* Espaço entre as colunas */
+    }
+  }
+  
+  .left-section {
+    background-color: #F15454;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%; /* Ocupa toda a largura em telas menores */
+    min-height: 400px; /* Altura mínima */
+    max-width: 480px; /* Largura máxima da coluna esquerda */
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: flex-start; /* Alinha o logo à esquerda */
+    align-items: center;
+    margin-bottom: 20px; /* Espaçamento abaixo do logo */
+  }
+  
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .logo-text {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-left: 8px;
+    user-select: none;
+  }
+  
+  .dogs-illustration {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%; /* Ocupa toda a largura em telas menores */
+    margin-top: 20px; /* Espaçamento acima do formulário em telas menores */
+    max-width: 480px; /* Largura máxima da coluna direita */
+  }
+  
+  @media (min-width: 768px) {
+    .right-section {
+      margin-top: 0; /* Remove o espaçamento em telas maiores */
+    }
+  }
+  
+  .welcome-title {
+    color: #0B2E56;
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    user-select: none;
+    text-align: left;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaçamento entre os campos do formulário */
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-label {
+    color: #0B2E56;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    user-select: none;
+    text-align: left;
+  }
+  
+  .form-input {
+    background-color: #F7FAFC;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: #0B2E56;
+    font-size: 1rem;
+  }
+  
+  .password-input-wrapper {
+    position: relative;
+  }
+  
+  .password-toggle-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #64748B;
+  }
+  
+  .login-button {
+    width: 100%;
+    background-color: #0B2E56;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background-color: #0a2749;
+  }
+  
+  .register-button {
+    margin-top: 15px;
+    width: 100%;
+    background-color: #F7FAFC;
+    color: #0B2E56;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-button:hover {
+    background-color: #e2e8f0;
+  }
