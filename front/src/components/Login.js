@@ -8,12 +8,24 @@ import { useNavigate, Link } from 'react-router-dom';
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    // Lógica de autenticação aqui (simulada para navegação)
+    // Lógica de autenticação aqui (usando os estados de email e password)
     console.log('Botão de Login clicado');
+    console.log('Email:', email);
+    console.log('Senha:', password);
     navigate('/pagina-inicial');
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
   };
 
   return (
@@ -24,8 +36,8 @@ function Login() {
             src={LogoIcon}
             alt="FindAFriend logo icon with a dog's face in white circle"
             className="logo-icon"
-            width={40} // Aumentei o tamanho da logo conforme solicitado
-            height={40} // Aumentei o tamanho da logo conforme solicitado
+            width={40}
+            height={40}
           />
           <span className="logo-text">
             FindAFriend
@@ -56,6 +68,8 @@ function Login() {
               type="email"
               placeholder="nome@email.com"
               className="form-input"
+              value={email} // Campo agora controlado pelo estado
+              onChange={handleEmailChange} // Atualiza o estado ao digitar
             />
           </div>
           <div className="form-group password-input-wrapper">
@@ -68,8 +82,9 @@ function Login() {
             <input
               id="password"
               type={showPassword ? 'text' : 'password'}
-              defaultValue="**********"
               className="form-input"
+              value={password} // Campo agora controlado pelo estado
+              onChange={handlePasswordChange} // Atualiza o estado ao digitar
             />
             <button
               type="button"
@@ -83,7 +98,7 @@ function Login() {
           <button
             type="submit"
             className="login-button"
-            onClick={handleLoginClick} // Adicionei o evento onClick para navegar
+            onClick={handleLoginClick}
           >
             Login
           </button>

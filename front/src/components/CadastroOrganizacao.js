@@ -1,9 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './cadastroOrg.css';
 import LogoIcon from '../assets/logo_completa.svg';
 import DogsIllustration from '../assets/dogs_illustration.svg';
+import MapaSimples from './MapaSimples'; // Importe o componente MapaSimples
 
 function CadastroOrganizacao() {
+  const [responsavel, setResponsavel] = useState('');
+  const [email, setEmail] = useState('');
+  const [cep, setCep] = useState('');
+  const [endereco, setEndereco] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
+  const [senha, setSenha] = useState('');
+  const [confirmarSenha, setConfirmarSenha] = useState('');
+  const [mapCenter, setMapCenter] = useState(null); // Estado para o centro do mapa
+
+  const handleInputChange = (event) => {
+    const { id, value } = event.target;
+    switch (id) {
+      case 'responsavel':
+        setResponsavel(value);
+        break;
+      case 'email':
+        setEmail(value);
+        break;
+      case 'cep':
+        setCep(value);
+        break;
+      case 'endereco':
+        setEndereco(value);
+        // Simulação de geocodificação ao mudar o endereço
+        // Em um cenário real, você chamaria um serviço de geocodificação aqui
+        setEndereco(value);
+        if (value === 'Rua Exemplo, 123') {
+          setMapCenter({ lat: -23.5505, lng: -46.6333 });
+        } else if (value === 'Outro Endereço, 456') {
+          setMapCenter({ lat: -22.9068, lng: -43.1729 });
+        } else {
+          setMapCenter(null); // Limpa o centro se o endereço não corresponder
+        }
+        break;
+      case 'whatsapp':
+        setWhatsapp(value);
+        break;
+      case 'senha':
+        setSenha(value);
+        break;
+      case 'confirmarSenha':
+        setConfirmarSenha(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Aqui você pode adicionar a lógica para enviar os dados do formulário
+    console.log({
+      responsavel,
+      email,
+      cep,
+      endereco,
+      whatsapp,
+      senha,
+      confirmarSenha,
+      mapCenter,
+    });
+  };
+
   return (
     <main className="cadastro-organizacao-container">
       <section className="left-section">
@@ -28,7 +92,7 @@ function CadastroOrganizacao() {
           <br />
           organização
         </h1>
-        <form className="cadastro-form">
+        <form className="cadastro-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="responsavel" className="form-label">
               Nome do responsável
@@ -37,7 +101,8 @@ function CadastroOrganizacao() {
               type="text"
               id="responsavel"
               className="form-input"
-              value="Antônio Bandeira"
+              value={responsavel}
+              onChange={handleInputChange}
             />
           </div>
           <div className="form-group">
@@ -48,14 +113,21 @@ function CadastroOrganizacao() {
               type="email"
               id="email"
               className="form-input"
-              value="nome@email.com"
+              value={email}
+              onChange={handleInputChange}
             />
           </div>
           <div className="form-group">
             <label htmlFor="cep" className="form-label">
               CEP
             </label>
-            <input type="text" id="cep" className="form-input" value="13254-000" />
+            <input
+              type="text"
+              id="cep"
+              className="form-input"
+              value={cep}
+              onChange={handleInputChange}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="endereco" className="form-label">
@@ -65,17 +137,13 @@ function CadastroOrganizacao() {
               type="text"
               id="endereco"
               className="form-input"
-              value="rua do meio"
+              value={endereco}
+              onChange={handleInputChange}
             />
           </div>
           <div className="map-placeholder">
-            <img
-              src="https://storage.googleapis.com/a1aa/image/987b6acd-c84d-4f01-c7f8-f34c5b55e0a1.jpg"
-              alt="Placeholder do mapa mostrando a área de Rio do Sul"
-              className="map-image"
-              width={400}
-              height={80}
-            />
+            {/* Substituímos a imagem pelo componente MapaSimples */}
+            <MapaSimples center={mapCenter} zoom={15} />
           </div>
           <div className="form-group">
             <label htmlFor="whatsapp" className="form-label">
@@ -85,7 +153,8 @@ function CadastroOrganizacao() {
               type="tel"
               id="whatsapp"
               className="form-input"
-              value="81 91234.5678"
+              value={whatsapp}
+              onChange={handleInputChange}
             />
           </div>
           <div className="form-group password-group relative">
@@ -96,8 +165,8 @@ function CadastroOrganizacao() {
               type="password"
               id="senha"
               className="form-input"
-              value="***********"
-              readOnly
+              value={senha}
+              onChange={handleInputChange}
             />
             <span className="password-toggle-icon">
               <i className="fas fa-eye-slash"></i>
@@ -111,8 +180,8 @@ function CadastroOrganizacao() {
               type="password"
               id="confirmarSenha"
               className="form-input"
-              value="***********"
-              readOnly
+              value={confirmarSenha}
+              onChange={handleInputChange}
             />
             <span className="password-toggle-icon">
               <i className="fas fa-eye-slash"></i>
