@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './cadastroOrg.css';
 import LogoIcon from '../assets/logo_completa.svg';
 import DogsIllustration from '../assets/dogs_illustration.svg';
-import MapaSimples from './MapaSimples'; // Importe o componente MapaSimples
+import MapaSimples from './MapaSimples';
 
 function CadastroOrganizacao() {
   const [responsavel, setResponsavel] = useState('');
   const [email, setEmail] = useState('');
   const [cep, setCep] = useState('');
   const [endereco, setEndereco] = useState('');
+  const [cidade, setCidade] = useState('');
+  const [estado, setEstado] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
-  const [mapCenter, setMapCenter] = useState(null); // Estado para o centro do mapa
+  const [mapCenter] = useState(null); // Removeu setMapCenter para evitar o warning
+  const [registrationError, setRegistrationError] = useState('');
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     const { id, value } = event.target;
@@ -28,16 +34,12 @@ function CadastroOrganizacao() {
         break;
       case 'endereco':
         setEndereco(value);
-        // Simulação de geocodificação ao mudar o endereço
-        // Em um cenário real, você chamaria um serviço de geocodificação aqui
-        setEndereco(value);
-        if (value === 'Rua Exemplo, 123') {
-          setMapCenter({ lat: -23.5505, lng: -46.6333 });
-        } else if (value === 'Outro Endereço, 456') {
-          setMapCenter({ lat: -22.9068, lng: -43.1729 });
-        } else {
-          setMapCenter(null); // Limpa o centro se o endereço não corresponder
-        }
+        break;
+      case 'cidade':
+        setCidade(value);
+        break;
+      case 'estado':
+        setEstado(value.toUpperCase());
         break;
       case 'whatsapp':
         setWhatsapp(value);
@@ -53,19 +55,55 @@ function CadastroOrganizacao() {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Aqui você pode adicionar a lógica para enviar os dados do formulário
-    console.log({
-      responsavel,
+    setRegistrationError('');
+    setRegistrationSuccess(false);
+
+    if (senha !== confirmarSenha) {
+      setRegistrationError('As senhas não coincidem.');
+      return;
+    }
+
+    const userData = {
+      nome_responsavel: responsavel,
       email,
       cep,
       endereco,
+      cidade, 
+      estado, 
       whatsapp,
       senha,
-      confirmarSenha,
-      mapCenter,
-    });
+      latitude: mapCenter?.lat,
+      longitude: mapCenter?.lng,
+    };
+
+    try {
+      // Certifique-se de que a URL do backend está correta (incluindo a porta, se necessário)
+      const apiUrl = 'http://localhost:3001/api/orgs/';
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Cadastro de organização realizado com sucesso!', data);
+        setRegistrationSuccess(true);
+        navigate('/login');
+      } else {
+        console.error('Erro ao cadastrar organização:', data);
+        setRegistrationError(data?.message || 'Ocorreu um erro ao realizar o cadastro. Tente novamente.');
+      }
+    } catch (error) {
+      console.error('Erro ao conectar com o servidor:', error);
+      setRegistrationError('Erro ao conectar com o servidor. Verifique sua conexão.');
+    }
   };
 
   return (
@@ -141,8 +179,33 @@ function CadastroOrganizacao() {
               onChange={handleInputChange}
             />
           </div>
+          {/* Novos campos para Cidade e Estado */}
+          <div className="form-group">
+            <label htmlFor="cidade" className="form-label">
+              Cidade
+            </label>
+            <input
+              type="text"
+              id="cidade"
+              className="form-input"
+              value={cidade}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="estado" className="form-label">
+              Estado (Sigla)
+            </label>
+            <input
+              type="text"
+              id="estado"
+              className="form-input"
+              value={estado}
+              onChange={handleInputChange}
+              maxLength="2" // Limita a 2 caracteres (sigla do estado)
+            />
+          </div>
           <div className="map-placeholder">
-            {/* Substituímos a imagem pelo componente MapaSimples */}
             <MapaSimples center={mapCenter} zoom={15} />
           </div>
           <div className="form-group">
@@ -187,12 +250,16 @@ function CadastroOrganizacao() {
               <i className="fas fa-eye-slash"></i>
             </span>
           </div>
+          {registrationError && <p className="error-message">{registrationError}</p>}
+          {registrationSuccess && <p className="success-message">Cadastro realizado com sucesso!</p>}
           <button type="submit" className="cadastro-button">
             Cadastrar
           </button>
         </form>
         <p className="login-link">
-          Já possui conta?
+          <Link to="/login">
+            Já possui conta?
+          </Link>
         </p>
       </section>
     </main>
