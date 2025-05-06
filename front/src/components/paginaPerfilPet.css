@@ -1,0 +1,336 @@
+.pagina-pet-perfil-container {
+    background-color: #FBE9EB;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .card-perfil {
+    display: flex;
+    width: 100%;
+    max-width: 768px; /* Ajustei para um tamanho maior */
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: white;
+    position: relative;
+  }
+  
+  /* Sidebar */
+  .sidebar-perfil {
+    background-color: #E94E57;
+    width: 4rem; /* Ajustei a largura */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .pata-icon {
+    margin-bottom: auto;
+  }
+  
+  .botao-voltar {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #F9D75E;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2E2E2E;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: brightness 0.2s ease-in-out;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .botao-voltar:hover {
+    filter: brightness(1.1);
+  }
+  
+  /* Main content */
+  .main-content-perfil {
+    flex-grow: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinhei o conteúdo à esquerda */
+  }
+  
+  .amigo-text {
+    font-size: 0.75rem;
+    color: #7B9BA6;
+    margin-bottom: 1rem;
+    align-self: flex-start; /* Garante alinhamento à esquerda */
+  }
+  
+  .foto-principal {
+    border-radius: 0.75rem;
+    width: 100%;
+    max-width: 600px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  
+  .miniaturas-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    width: 100%; /* Garante que ocupa a largura total */
+  }
+  
+  .miniatura {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    background-color: #B9DFF7;
+  }
+  
+  .miniatura img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+  
+  .miniatura.selecionada {
+    border: 4px solid #0F3B66;
+  }
+  
+  .miniatura.selecionada img {
+    opacity: 1;
+  }
+  
+  .nome-pet {
+    color: #0F3B66;
+    font-weight: 800;
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+    align-self: flex-start;
+  }
+  
+  .descricao-pet {
+    color: #0F3B66;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    align-self: flex-start;
+    max-width: 600px;
+  }
+  
+  .atributos-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-self: flex-start;
+    max-width: 600px;
+  }
+  
+  .atributo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    border: 1px solid #B9DFF7;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    width: 8rem;
+    color: #0F3B66;
+    text-align: center;
+  }
+  
+  .icone-energia {
+    display: flex;
+    gap: 0.25rem;
+    font-size: 1.25rem;
+  }
+  
+  .icone-inativo {
+    color: #B9DFF7;
+  }
+  
+  .icone-ambiente {
+    font-size: 1.25rem;
+  }
+  
+  .icone-porte {
+    display: flex;
+    gap: 0.25rem;
+    font-size: 1.25rem;
+  }
+  
+  .texto-atributo {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .mapa-container {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid #B9DFF7;
+    margin-bottom: 2rem;
+  }
+  
+  .mapa-imagem {
+    width: 100%;
+    object-fit: cover;
+    height: 11rem; /* Ajustei a altura */
+  }
+  
+  .ver-rotas {
+    background-color: #0F3B66;
+    color: #F9D75E;
+    text-align: center;
+    padding: 0.5rem 0;
+    font-weight: 600;
+    font-size: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .divisor {
+    border-color: #D9E2E9;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .organizacao-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .organizacao-icone {
+    background-color: #F47900;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .organizacao-icone img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .organizacao-detalhes {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .organizacao-nome {
+    color: #0F3B66;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  
+  .organizacao-endereco {
+    color: #0F3B66;
+    font-size: 0.75rem;
+    font-weight: normal;
+  }
+  
+  .botao-whatsapp {
+    margin-top: 1rem;
+    background-color: #E3E9F0;
+    color: #0F3B66;
+    font-weight: 600;
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    width: 100%;
+    max-width: 600px;
+    justify-content: center;
+    transition: brightness 0.2s ease-in-out;
+    border: none;
+  }
+  
+  .botao-whatsapp:hover {
+    filter: brightness(1.1);
+  }
+  
+  .requisitos-titulo {
+    color: #0F3B66;
+    font-weight: 600;
+    font-size: 1.125rem;
+    align-self: flex-start;
+    max-width: 600px;
+    margin-bottom: 1rem;
+  }
+  
+  .requisitos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .requisito-item {
+    border: 1px solid #E94E57;
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    color: #E94E57;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    user-select: none;
+  }
+  
+  .requisito-icone {
+    font-size: 0.875rem;
+  }
+  
+  .botao-contato {
+    background-color: #4FD68D;
+    color: white;
+    font-weight: 600;
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    width: 100%;
+    max-width: 600px;
+    transition: brightness 0.2s ease-in-out;
+    border: none;
+  }
+  
+  .botao-contato:hover {
+    filter: brightness(1.1);
+  }
